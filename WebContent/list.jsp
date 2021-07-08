@@ -40,7 +40,7 @@ java코드는 <% %> 사이에 작성
 
 	<table border=1>
 		<tr>
-			<td>이름</td>
+			<td>이름(<%=phoneList.get(i).getPersonID() %>)</td>
 			<td><%=phoneList.get(i).getName()%></td> <!-- 변수이름 = %= -->
 		</tr>
 		<tr>
@@ -50,6 +50,10 @@ java코드는 <% %> 사이에 작성
 		<tr>
 			<td>회사</td>
 			<td><%=phoneList.get(i).getCompany()%></td>
+		</tr>
+		<tr>
+			<td><a href="./updateForm.jsp?id=<%=phoneList.get(i).getPersonID()%>">[수정]</a></td>
+			<td><a href="./delete.jsp?id=<%=phoneList.get(i).getPersonID()%>">[삭제]</a></td>
 		</tr>
 	</table>
 
@@ -68,7 +72,7 @@ java코드는 <% %> 사이에 작성
 
 	<table border=1>
 		<tr>
-			<td>이름</td>
+			<td>이름(<%=p.getPersonID()%>)</td>
 			<td><%=p.getName()%></td>
 		</tr>
 		<tr>
@@ -99,7 +103,7 @@ java코드는 <% %> 사이에 작성
 
 	<table border=1>
 		<tr>
-			<td>이름</td>
+			<td>이름(<%=phoneDao.phoneList().get(i).getPersonID()%>)</td>
 			<td><%=phoneDao.phoneList().get(i).getName()%></td>
 		</tr>
 		<tr>
@@ -127,7 +131,7 @@ java코드는 <% %> 사이에 작성
 
 	<table border=1>
 		<tr>
-			<td>이름</td>
+			<td>이름(<%=p.getPersonID()%>)</td>
 			<td><%=p.getName()%></td>
 		</tr>
 		<tr>

@@ -193,5 +193,38 @@ public class PhoneDao {
 		
 		return count;
 	}
+	
+	public PhoneVo getPerson(int i) {
+		PhoneVo p = null;
+		
+		getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(
+					" SELECT "
+					+ " 	person_id, "
+					+ " 	name, "
+					+ " 	hp, "
+					+ " 	company "
+					+ " FROM "
+					+ " 	person "
+					+ " WHERE "
+					+ " 	person_id = ? "
+					);
+			pstmt.setInt(1, i);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				p = new PhoneVo(rs.getInt("person_id"), rs.getString("name"), rs.getString("hp"), rs.getString("company"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		getClose();
+		
+		return p;
+	}
 
 }
